@@ -50,24 +50,31 @@ public class Bebras implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "bebras";
+    }
+
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("Python is a good coding language.");
         health -= 10;
         return attack * 10;
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("Computational thinking is very important in computer science.");
         health += 10;
         defence += 5;
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("This is so advanced.");
         health += 1;
         defence += 10;
+        return 0;
     }
 
 }

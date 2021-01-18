@@ -49,7 +49,11 @@ public class StackOverflowMan implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "stackoverflowman";
+    }
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 1) {
             System.out.println("Lmao it did nothing idot.");
@@ -61,7 +65,7 @@ public class StackOverflowMan implements CardMethods {
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 7) {
             System.out.println("Lmao why were you trying to learn about pointers when you don't even know what a function is?");
@@ -71,10 +75,11 @@ public class StackOverflowMan implements CardMethods {
             defence += 20;
             health += 30;
         }
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 8) {
             System.out.println("That was super useful, wasn't it");
@@ -84,5 +89,6 @@ public class StackOverflowMan implements CardMethods {
         else {
             System.out.println("lmao you are so dumb!");
         }
+        return 0;
     }
 }

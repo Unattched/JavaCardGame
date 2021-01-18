@@ -50,7 +50,12 @@ public class DevelopmentIndicatorsMan implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "developmentindicatorsman";
+    }
+
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("Fairtrade has been initialized");
         for(CardMethods player : players) {
             player.setDefence(player.getDefence() - 15);
@@ -60,32 +65,35 @@ public class DevelopmentIndicatorsMan implements CardMethods {
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
-        if(usesOfAbility2 > 0) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
+        if(usesOfAbility2 != 0) {
             System.out.println("You are now a HIC, good job!");
-            this.defence += 40;
+            defence += 40;
             usesOfAbility2--;
         } else {
             System.out.println("You can't use this ability anymore, you are already a developed country");
         }
+        return 0;
 
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 7) {
             System.out.println("Bruh your government is corrupt.");
             for(CardMethods player : players) {
                 player.setDefence(player.getDefence() - 10);
             }
-        } else {
+        }
+        else {
             System.out.println("Ayy the government worked!");
             for(CardMethods player: players) {
                 player.setAttack(player.getAttack() + 30);
                 player.setDefence(player.getDefence() + 30);
             }
         }
+        return 0;
     }
 
 

@@ -49,7 +49,12 @@ public class Crypto implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "crypto";
+    }
+
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 6) {
             System.out.println("Your drone got destroyed, bruh");
@@ -64,7 +69,7 @@ public class Crypto implements CardMethods {
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 5) {
             System.out.println("Well your off the grid, and now your completely isolated from society.");
@@ -73,21 +78,23 @@ public class Crypto implements CardMethods {
             }
         }
         else {
-            System.out.println("Well your off the grid, and now your completely isolated from society.");
+            System.out.println("Off the grid is only the secure way to go indeed.");
             for (CardMethods player : players) {
                 player.setDefence(player.getDefence() + 20);
                 player.setHealth(player.getHealth() + 20);
             }
         }
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("Initiating system reboot.");
         for(CardMethods player: players) {
             player.setDefence(player.getDefence() + 10);
             player.setAttack(player.getAttack() + 10);
             player.setHealth(player.getHealth() -5);
         }
+        return 0;
     }
 }

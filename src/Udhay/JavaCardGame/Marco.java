@@ -50,7 +50,12 @@ public class Marco implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "marco";
+    }
+
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         if(usesOfAbility > 0) {
             System.out.println("Jesus you love playing games don't you?");
             usesOfAbility--;
@@ -63,17 +68,19 @@ public class Marco implements CardMethods {
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("lmao imagine being a coder.");
         attack -= 2;
         defence += 15;
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         System.out.println("lmao imagine having a gpu from 3 years ago");
         attack += 1;
         health += 5;
+        return 0;
     }
 
 }

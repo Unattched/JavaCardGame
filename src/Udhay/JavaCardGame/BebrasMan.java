@@ -49,26 +49,32 @@ public class BebrasMan implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public String getCard() {
+        return "bebrasman";
+    }
+
+    @Override
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(2);
         if(chance == 1) {
             System.out.println("Bruh it didn't work, fix your grammar man.");
             health -= 30;
-            return 0;
         } else {
             System.out.println("It worked! Are any update on the this?");
             return 8 * attack;
         }
+        return 0;
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         defence += 5;
         health += 20;
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 4) {
             System.out.println("It didn't work. Kid just use an IDE lmao");
@@ -78,5 +84,6 @@ public class BebrasMan implements CardMethods {
             defence += 10;
             health  += 15;
         }
+        return 0;
     }
 }

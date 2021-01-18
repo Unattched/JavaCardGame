@@ -35,6 +35,11 @@ public class BlockGameSweat implements CardMethods {
     }
 
     @Override
+    public String getCard() {
+        return "blockgamesweat";
+    }
+
+    @Override
     public float getDefence() {
         return defence;
     }
@@ -50,7 +55,7 @@ public class BlockGameSweat implements CardMethods {
     }
 
     @Override
-    public float Ability1(CardMethods[] players) {
+    public float Ability1(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(2);
         if(chance == 1) {
             System.out.println("Bruh you just roasted that kid.");
@@ -65,7 +70,7 @@ public class BlockGameSweat implements CardMethods {
     }
 
     @Override
-    public void Ability2(CardMethods[] players) {
+    public float Ability2(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 7) {
             System.out.println("bruh how did you fall of that bridge?");
@@ -76,10 +81,11 @@ public class BlockGameSweat implements CardMethods {
             attack += 3;
             defence += 5;
         }
+        return 0;
     }
 
     @Override
-    public void Ability3(CardMethods[] players) {
+    public float Ability3(CardMethods[] players, CardMethods[] enemies) {
         int chance = Utilities.getRandom(10);
         if(chance > 5) {
             System.out.println("Lmao you just contracted carpal tunnel, good luck pvping now!");
@@ -91,5 +97,6 @@ public class BlockGameSweat implements CardMethods {
             attack += 5;
             health += 5;
         }
+        return 0;
     }
 }
